@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
             $table->text('descripcion')->nullable();
+             //relaciones
+             $table->unsignedBigInteger('encuestas_id');
+             $table->foreign('encuestas_id')
+             ->references('id')
+             ->on('encuestas')
+             ->onUpdate('cascade')
+             ->onDelete('cascade');
 
-
-            //relaciones
-            
 
             $table->timestamps();
         });

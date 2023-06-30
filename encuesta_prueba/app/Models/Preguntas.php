@@ -11,11 +11,19 @@ class Preguntas extends Model
     protected $table = "preguntas";
     protected $fillable= [
         "descripcion",
+        "encuestas_id"
     ];
 
 
     //relaciones
+    public function encuestas(){
+        return $this->belongsTo(Encuestas::class);
+    }
+
+
     public function respuestas(){
         return $this->hasMany(Respuestas::class);
      }
+
+
 }

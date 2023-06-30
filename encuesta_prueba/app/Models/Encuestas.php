@@ -27,5 +27,12 @@ class Encuestas extends Model
     ];
 
     //relaciones
-    
+    public function preguntas(){
+        return $this->hasMany(Preguntas::class);
+     }
+
+     public function respuestas(){
+        return $this->hasMany(Respuestas::class);
+     }
+
 }

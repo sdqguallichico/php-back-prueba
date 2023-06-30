@@ -11,11 +11,15 @@ class Respuestas extends Model
     protected $table = "respuestas";
     protected $fillable= [
         "descripcion",
-        "preguntas_id"
+        "preguntas_id",
+        "encuestas_id"
      ];
 
     //relaciones
     public function preguntas(){
         return $this->belongsTo(Preguntas::class);
+    }
+    public function encuestas(){
+        return $this->belongsTo(Encuestas::class);
     }
 }

@@ -23,6 +23,13 @@ return new class extends Migration
             ->on('preguntas')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
+            $table->unsignedBigInteger('encuestas_id');
+            $table->foreign('encuestas_id')
+            ->references('id')
+            ->on('encuestas')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
